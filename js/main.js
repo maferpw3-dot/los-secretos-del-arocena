@@ -23,9 +23,16 @@ let supabaseClient = null;
 
 // Initialize Supabase if credentials are present
 function initSupabase() {
-  if (window.supabase && appState.supabaseConfig.url && appState.supabaseConfig.anonKey) {
-    supabaseClient = window.supabase.createClient(appState.supabaseConfig.url, appState.supabaseConfig.anonKey);
-    console.log('✅ Supabase conectado exitosamente');
+  const url = window.SUPABASE_URL || 'https://ayhneireatjrgzmmmhyt.supabase.co';
+  const key = window.SUPABASE_ANON_KEY || 'sb_publishable_3mkheY1GCFEwFn-NRmFHjg_IhSc4Ioc';
+  
+  if (window.supabase && url && key) {
+    try {
+      supabaseClient = window.supabase.createClient(url, key);
+      console.log('✅ Supabase conectado exitosamente a:', url);
+    } catch (e) {
+      console.error('Error al instanciar cliente Supabase:', e);
+    }
   }
 }
 
