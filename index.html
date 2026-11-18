@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Secretos del Arocena | Escape Room en el Museo Arocena</title>
+  <meta name="description" content="El primer Escape Room en el Museo Arocena en Torreón, Coahuila. Resuelve enigmas entre obras de arte en 60 minutos con tu equipo. ¡Aparta tu misión!">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            museum: {
+              950: '#0a0b0e',
+              900: '#101217',
+              850: '#161920',
+              800: '#1e222b',
+              700: '#2a303c',
+            },
+            gold: {
+              300: '#f6e29f',
+              400: '#e5c46d',
+              500: '#d4af37',
+              600: '#b89428',
+              700: '#8f701c',
+            },
+            crimson: {
+              500: '#c02636',
+              600: '#9e1b29',
+              700: '#7d121e',
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Phosphor Icons CDN -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-museum-950 text-slate-100 font-sans antialiased selection:bg-gold-500 selection:text-black min-h-screen flex flex-col">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-crimson-700 via-crimson-600 to-crimson-700 text-white text-xs font-semibold py-2 px-4 text-center tracking-wider flex items-center justify-center gap-2 shadow-md">
+    <span class="inline-block w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+    <span>EDICIÓN LIMITADA EN NOVIEMBRE & DICIEMBRE • CUPOS POR TURNO: SOLO 3 EQUIPOS SIMULTÁNEOS</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-museum-950/80 border-b border-gold-500/20 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg border border-gold-500/50 bg-museum-900 flex items-center justify-center text-gold-400 shadow-sm shadow-gold-500/10 group-hover:border-gold-400 transition-colors">
+          <i class="ph-bold ph-key text-xl"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-lg sm:text-xl tracking-wider text-slate-50 group-hover:text-gold-400 transition-colors">LOS SECRETOS</span>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-gold-500 font-semibold -mt-1">DEL AROCENA • TORREÓN</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#reto" class="hover:text-gold-400 transition-colors">El Reto</a>
+        <a href="#modalidades" class="hover:text-gold-400 transition-colors">Modalidades</a>
+        <a href="#calculadora" class="hover:text-gold-400 transition-colors">Calculadora</a>
+        <a href="#resenas" class="hover:text-gold-400 transition-colors">Reseñas</a>
+        <a href="#faq" class="hover:text-gold-400 transition-colors">Reglas y FAQ</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="openInviteModal()" class="hidden sm:inline-flex items-center gap-2 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-gold-400 border border-gold-500/40 rounded-lg hover:bg-gold-500/10 transition-colors">
+          <i class="ph-bold ph-users-three"></i> Invita a tu equipo
+        </button>
+        <a href="#reserva" class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg font-bold text-xs sm:text-sm uppercase tracking-wider bg-gradient-to-r from-gold-500 to-gold-400 text-black hover:brightness-110 shadow-lg shadow-gold-500/20 transition-all transform hover:-translate-y-0.5">
+          <span>Reservar Misión</span>
+          <i class="ph-bold ph-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 lg:py-24">
+      <!-- Background Ambient Glow & Grid -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(212,175,55,0.15),transparent_70%)] pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_40%,#0a0b0e_100%)] pointer-events-none"></div>
+      
+      <!-- Texture overlay -->
+      <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        
+        <!-- Tagline Badge (Inspired by Virtual Escaping) -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-museum-900 border border-gold-500/30 text-gold-400 text-xs uppercase tracking-widest font-semibold mb-6 shadow-inner">
+          <i class="ph-fill ph-sparkle text-sm"></i> Experiencia Inmersiva Real • Museo Arocena
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight sm:leading-none mb-6">
+          ¿Podrás descifrar <span class="bg-gradient-to-r from-gold-300 via-gold-500 to-amber-600 bg-clip-text text-transparent">Los Secretos</span> del Museo en 60 minutos?
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="max-w-2xl text-slate-300 text-base sm:text-lg lg:text-xl font-normal leading-relaxed mb-8">
+          Olvida los recorridos tradicionales. Forma tu equipo de 4 a 6 personas, sumérgete entre obras maestras, pinturas virreinales y enigmas históricos de La Laguna antes de que el reloj marque cero.
+        </p>
+
+        <!-- Dynamic Timer Hook (60 Min Escape) -->
+        <div class="mb-10 p-3 sm:p-4 rounded-xl bg-museum-900/90 border border-gold-500/30 backdrop-blur-sm flex items-center gap-6 text-left shadow-2xl">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-crimson-600/30 border border-crimson-500 text-crimson-500 flex items-center justify-center animate-pulse">
+              <i class="ph-fill ph-hourglass-high text-xl"></i>
+            </div>
+            <div>
+              <div class="text-[11px] uppercase tracking-wider text-slate-400">Tiempo de Misión</div>
+              <div class="font-serif font-bold text-gold-400 text-lg">60 Minutos Exactos</div>
+            </div>
+          </div>
+          <div class="h-8 w-px bg-slate-800"></div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500 text-gold-400 flex items-center justify-center">
+              <i class="ph-fill ph-users-three text-xl"></i>
+            </div>
+            <div>
+              <div class="text-[11px] uppercase tracking-wider text-slate-400">Modalidad</div>
+              <div class="font-serif font-bold text-slate-200 text-lg">Equipos de 4 a 6</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero CTAs -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+          <a href="#reserva" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-gold-500 to-gold-400 text-black hover:brightness-110 shadow-xl shadow-gold-500/25 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+            <i class="ph-bold ph-calendar-check text-lg"></i>
+            <span>Aparta tu lugar ahora</span>
+          </a>
+          <a href="#reto" class="w-full sm:w-auto px-6 py-4 rounded-xl font-semibold text-sm tracking-wider text-slate-300 border border-slate-700 bg-museum-900/80 hover:bg-museum-800 hover:text-white transition-all flex items-center justify-center gap-2">
+            <i class="ph-bold ph-compass"></i>
+            <span>Conoce la dinámica</span>
+          </a>
+        </div>
+
+        <!-- Social Proof Micro-Bar (Inspired by Virtual Escaping) -->
+        <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+          <div class="flex items-center gap-1.5 text-gold-400">
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i>
+            <span class="text-white font-bold ml-1">4.9 / 5.0</span>
+          </div>
+          <span class="text-slate-700">•</span>
+          <span>+140 equipos ya han jugado</span>
+          <span class="text-slate-700">•</span>
+          <span>Centro Histórico de Torreón</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. EL RETO (¿CÓMO FUNCIONA EN 4 PASOS?) -->
+    <section id="reto" class="py-20 bg-museum-900 relative border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-500 mb-2">La Experiencia</h2>
+          <p class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">¿Cómo funciona la misión?</p>
+          <p class="text-slate-400 text-base">Diseñado para poner a prueba el ingenio, la observación y el trabajo colaborativo en las majestuosas salas del Museo Arocena.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Step 1 -->
+          <div class="group bg-museum-850 p-6 rounded-2xl border border-slate-800 hover:border-gold-500/50 transition-all duration-300 relative flex flex-col justify-between hover:-translate-y-1">
+            <div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-gold-500 text-black font-extrabold text-xs">PASO 01</div>
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-museum-800 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6 text-2xl group-hover:scale-110 transition-transform">
+                <i class="ph-duotone ph-users-three"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-2">Forma tu Escuadrón</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Arma un equipo de 4 a 6 amigos, pareja o compañeros. Cada miembro aportará una habilidad clave: deducción, lógica o memoria visual.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-gold-400 font-semibold flex items-center gap-1">
+              4 a 6 Integrantes <i class="ph-bold ph-arrow-right text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="group bg-museum-850 p-6 rounded-2xl border border-slate-800 hover:border-gold-500/50 transition-all duration-300 relative flex flex-col justify-between hover:-translate-y-1">
+            <div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-gold-500 text-black font-extrabold text-xs">PASO 02</div>
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-museum-800 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6 text-2xl group-hover:scale-110 transition-transform">
+                <i class="ph-duotone ph-scroll"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-2">Recibe tu Bitácora</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Un guía del museo te entregará el maletín de investigación con documentos históricos, filtros ópticos y las reglas de preservación.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-gold-400 font-semibold flex items-center gap-1">
+              Briefing y Protocolo <i class="ph-bold ph-arrow-right text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="group bg-museum-850 p-6 rounded-2xl border border-slate-800 hover:border-gold-500/50 transition-all duration-300 relative flex flex-col justify-between hover:-translate-y-1">
+            <div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-gold-500 text-black font-extrabold text-xs">PASO 03</div>
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-museum-800 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6 text-2xl group-hover:scale-110 transition-transform">
+                <i class="ph-duotone ph-magnifying-glass"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-2">Resuelve los Enigmas</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Tienes exactamente 60 minutos para descifrar 6 acertijos ocultos en los detalles de las pinturas, esculturas y arquitectura del museo.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-crimson-500 font-semibold flex items-center gap-1">
+              Contrarreloj: 60 Min <i class="ph-bold ph-arrow-right text-xs"></i>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="group bg-museum-850 p-6 rounded-2xl border border-slate-800 hover:border-gold-500/50 transition-all duration-300 relative flex flex-col justify-between hover:-translate-y-1">
+            <div class="absolute -top-3 left-6 px-3 py-0.5 rounded-full bg-gold-500 text-black font-extrabold text-xs">PASO 04</div>
+            <div>
+              <div class="w-14 h-14 rounded-xl bg-museum-800 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6 text-2xl group-hover:scale-110 transition-transform">
+                <i class="ph-duotone ph-trophy"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-2">Escapa y Gana</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Descubre el secreto final, tómate la fotografía conmemorativa de escape y compite por el récord mensual del Museo Arocena.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 text-xs text-gold-400 font-semibold flex items-center gap-1">
+              Foto oficial + Galería <i class="ph-bold ph-arrow-right text-xs"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SELECTOR DUAL DE EXPERIENCIAS (INSPIRADO EN EL SELECTOR EDITORIAL DE BERSHKA) -->
+    <section id="modalidades" class="py-20 bg-museum-950 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-500">Horarios y Tarifas</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2 mb-4">Elige tu atmósfera de escape</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Selecciona entre la claridad museográfica del turno diurno o el misterio cinematográfico del turno nocturno.</p>
+        </div>
+
+        <!-- Bershka-style Dual Split Selector Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          
+          <!-- Mode 1: Sesión Diurna -->
+          <div class="group relative rounded-3xl bg-gradient-to-b from-museum-900 to-museum-850 border-2 border-slate-800 hover:border-gold-500/60 p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-gold-500/10">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                  <i class="ph-fill ph-sun"></i> Turno Diurno
+                </span>
+                <span class="text-2xl font-serif font-black text-white">$80 <span class="text-xs text-slate-400 font-sans font-normal">MXN / pers</span></span>
+              </div>
+
+              <h3 class="font-serif text-2xl font-bold text-white mb-3">Sesión de Día: "El Enigma Virreinal"</h3>
+              <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                Ideal para familias, universitarios y amigos que desean combinar la emoción del escape con la luminosidad de las galerías principales.
+              </p>
+
+              <div class="space-y-3 mb-8 text-sm text-slate-300">
+                <div class="flex items-center gap-3">
+                  <i class="ph-bold ph-calendar text-gold-400"></i>
+                  <span><strong>Sábados y Domingos:</strong> 11:00 AM – 1:00 PM</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i class="ph-bold ph-lightbulb text-gold-400"></i>
+                  <span>Enfoque en detalles ocultos a plena luz</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i class="ph-bold ph-check-circle text-gold-400"></i>
+                  <span>Incluye acceso general al museo al finalizar</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="selectModeAndCalculate('diurno')" class="w-full py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider bg-museum-800 hover:bg-gold-500 hover:text-black text-gold-400 border border-gold-500/40 transition-all flex items-center justify-center gap-2">
+              <span>Configurar Equipo de Día ($80/p)</span>
+              <i class="ph-bold ph-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Mode 2: Sesión Nocturna (Highlighted) -->
+          <div class="group relative rounded-3xl bg-gradient-to-b from-museum-900 to-museum-850 border-2 border-gold-500/80 p-8 flex flex-col justify-between transition-all duration-300 shadow-2xl shadow-gold-500/15">
+            <!-- Badge Hot / Trending (Virtual Escaping Style) -->
+            <div class="absolute -top-3.5 right-8 px-4 py-1 rounded-full bg-crimson-600 text-white font-extrabold text-[11px] uppercase tracking-widest shadow-md flex items-center gap-1.5">
+              <i class="ph-fill ph-fire"></i> MÁS POPULAR • CUPOS LIMITADOS
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gold-500/20 text-gold-400 border border-gold-500/40">
+                  <i class="ph-fill ph-moon-stars"></i> Turno Nocturno
+                </span>
+                <span class="text-2xl font-serif font-black text-gold-400">$100 <span class="text-xs text-slate-400 font-sans font-normal">MXN / pers</span></span>
+              </div>
+
+              <h3 class="font-serif text-2xl font-bold text-white mb-3">Sesión Nocturna: "Sombras en las Salas"</h3>
+              <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                El museo cierra sus puertas al público general y queda en penumbras. Lámparas ultravioleta, susurros y una atmósfera de misterio puro.
+              </p>
+
+              <div class="space-y-3 mb-8 text-sm text-slate-300">
+                <div class="flex items-center gap-3">
+                  <i class="ph-bold ph-calendar text-gold-400"></i>
+                  <span><strong>Viernes:</strong> 6:00 PM – 8:00 PM</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i class="ph-bold ph-calendar text-gold-400"></i>
+                  <span><strong>Sábados:</strong> 8:00 PM – 10:00 PM</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <i class="ph-bold ph-flashlight text-gold-400"></i>
+                  <span>Incluye linterna UV por equipo y pistas sonoras</span>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="selectModeAndCalculate('nocturno')" class="w-full py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-500 to-gold-400 text-black hover:brightness-110 shadow-lg shadow-gold-500/20 transition-all flex items-center justify-center gap-2">
+              <span>Configurar Equipo Nocturno ($100/p)</span>
+              <i class="ph-bold ph-arrow-right"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. CALCULADORA DINÁMICA DE EQUIPO (FR-02) -->
+    <section id="calculadora" class="py-20 bg-museum-900 border-y border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-museum-950 p-8 sm:p-12 rounded-3xl border border-gold-500/30 shadow-2xl relative overflow-hidden">
+          
+          <div class="text-center mb-10">
+            <span class="text-xs uppercase tracking-[0.25em] font-semibold text-gold-400">Calculadora en Tiempo Real</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">Calcula el costo para tu escuadrón</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-2">Un solo precio transparente para todo el grupo, sin cargos ocultos.</p>
+          </div>
+
+          <!-- Step 1: Select Players -->
+          <div class="mb-8">
+            <label class="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-3 text-center sm:text-left">
+              1. Número de Jugadores (Requerido: 4 a 6 personas):
+            </label>
+            <div class="grid grid-cols-3 gap-3 sm:gap-4" id="playersSelectorGroup">
+              <button type="button" onclick="setPlayers(4)" data-players="4" class="player-btn py-3 sm:py-4 rounded-xl border border-slate-700 bg-museum-900 font-bold text-sm sm:text-base text-slate-200 hover:border-gold-500 transition-all flex flex-col items-center gap-1">
+                <span class="text-lg sm:text-xl font-serif">4</span>
+                <span class="text-[10px] text-slate-400 uppercase tracking-widest">Jugadores</span>
+              </button>
+              <button type="button" onclick="setPlayers(5)" data-players="5" class="player-btn py-3 sm:py-4 rounded-xl border-2 border-gold-500 bg-gold-500/10 text-gold-400 font-bold text-sm sm:text-base hover:border-gold-500 transition-all flex flex-col items-center gap-1 shadow-md shadow-gold-500/10">
+                <span class="text-lg sm:text-xl font-serif">5</span>
+                <span class="text-[10px] text-gold-300 uppercase tracking-widest font-semibold">Recomendado</span>
+              </button>
+              <button type="button" onclick="setPlayers(6)" data-players="6" class="player-btn py-3 sm:py-4 rounded-xl border border-slate-700 bg-museum-900 font-bold text-sm sm:text-base text-slate-200 hover:border-gold-500 transition-all flex flex-col items-center gap-1">
+                <span class="text-lg sm:text-xl font-serif">6</span>
+                <span class="text-[10px] text-slate-400 uppercase tracking-widest">Capacidad Máx</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Select Schedule Mode -->
+          <div class="mb-10">
+            <label class="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-3 text-center sm:text-left">
+              2. Modalidad de Horario:
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="modeSelectorGroup">
+              <button type="button" onclick="setMode('diurno')" data-mode="diurno" class="mode-btn p-4 rounded-xl border border-slate-700 bg-museum-900 text-left hover:border-gold-500 transition-all flex items-center justify-between">
+                <div>
+                  <div class="font-bold text-white text-sm flex items-center gap-2">
+                    <i class="ph-fill ph-sun text-amber-400"></i> Turno Diurno
+                  </div>
+                  <div class="text-xs text-slate-400 mt-0.5">Sáb o Dom • 11:00 AM</div>
+                </div>
+                <div class="text-right">
+                  <span class="font-serif font-bold text-gold-400 text-lg">$80</span>
+                  <span class="text-[10px] text-slate-400 block">c/u</span>
+                </div>
+              </button>
+
+              <button type="button" onclick="setMode('nocturno')" data-mode="nocturno" class="mode-btn p-4 rounded-xl border-2 border-gold-500 bg-gold-500/10 text-left hover:border-gold-500 transition-all flex items-center justify-between shadow-md shadow-gold-500/10">
+                <div>
+                  <div class="font-bold text-white text-sm flex items-center gap-2">
+                    <i class="ph-fill ph-moon-stars text-gold-400"></i> Turno Nocturno
+                  </div>
+                  <div class="text-xs text-slate-400 mt-0.5">Vie 6PM o Sáb 8PM</div>
+                </div>
+                <div class="text-right">
+                  <span class="font-serif font-bold text-gold-400 text-lg">$100</span>
+                  <span class="text-[10px] text-slate-400 block">c/u</span>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Cost Calculation Summary Box -->
+          <div class="bg-museum-900 p-6 rounded-2xl border border-gold-500/40 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div>
+              <span class="text-xs text-slate-400 uppercase tracking-widest block font-medium">Inversión Total del Equipo</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="font-serif text-3xl sm:text-4xl font-extrabold text-white" id="calcTotal">$500 MXN</span>
+                <span class="text-xs text-slate-400" id="calcFormula">(5 jugadores × $100)</span>
+              </div>
+              <p class="text-[11px] text-slate-400 mt-1">
+                Apartas en línea con $0 de comisión y liquidas al llegar en taquilla del museo.
+              </p>
+            </div>
+
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <button onclick="applyToBookingForm()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-500 to-gold-400 text-black hover:brightness-110 shadow-lg shadow-gold-500/20 transition-all flex items-center justify-center gap-2">
+                <span>Continuar Reserva</span>
+                <i class="ph-bold ph-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. SOCIAL PROOF & TESTIMONIOS (INSPIRADO EN VIRTUAL ESCAPING) -->
+    <section id="resenas" class="py-20 bg-museum-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold mb-3">
+            <i class="ph-fill ph-check-circle"></i> +140 Equipos Participantes
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Lo que dicen los fugitivos</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Historias reales de jóvenes, familias y grupos de amigos que han aceptado el desafío en el Arocena.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Review 1 -->
+          <div class="bg-museum-900 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-gold-400 text-sm mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                "Pensábamos que sería el típico recorrido aburrido, pero nada que ver. Fuimos 5 amigos un sábado en la noche y la adrenalina de los acertijos con luz tenue fue impresionante. ¡Escapamos faltando 3 minutos!"
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+              <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center text-sm border border-gold-500/40">
+                RG
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Rodrigo Garza</div>
+                <div class="text-xs text-slate-400">Estudiante Tec de Monterrey • Torreón</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="bg-museum-900 p-6 rounded-2xl border border-gold-500/30 flex flex-col justify-between shadow-lg shadow-gold-500/5">
+            <div>
+              <div class="flex items-center gap-1 text-gold-400 text-sm mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                "Excelente para salir de la rutina del mall o el cine. Lo reservamos para el cumpleaños de mi hermano. Los acertijos están súper bien integrados con la historia del museo y los guías te meten de lleno en el papel."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+              <div class="w-10 h-10 rounded-full bg-crimson-600/20 text-crimson-400 font-bold flex items-center justify-center text-sm border border-crimson-500/40">
+                MC
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Mariana Cantú</div>
+                <div class="text-xs text-slate-400">Grupo de 6 personas • Gómez Palacio</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="bg-museum-900 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-gold-400 text-sm mb-4">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-slate-300 text-sm italic mb-6 leading-relaxed">
+                "Hicimos una actividad de integración con el equipo de trabajo de la oficina. Se requiere comunicación real y estrategia. Muy accesible por $80-$100 pesos, sin duda volveremos."
+              </p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-800">
+              <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 font-bold flex items-center justify-center text-sm border border-gold-500/40">
+                JS
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Jorge Salazar</div>
+                <div class="text-xs text-slate-400">Team Building Empresarial • La Laguna</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Corporate & Schools Banner (PRD Section 4) -->
+        <div class="mt-12 bg-gradient-to-r from-museum-900 via-museum-850 to-museum-900 p-8 rounded-3xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 border border-gold-500/30 flex items-center justify-center text-2xl flex-shrink-0">
+              <i class="ph-bold ph-buildings"></i>
+            </div>
+            <div>
+              <h4 class="font-serif text-lg font-bold text-white">¿Buscas una fecha especial para tu escuela o empresa?</h4>
+              <p class="text-slate-400 text-xs sm:text-sm mt-0.5">Diseñamos dinámicas personalizadas de team building, rallys estudiantiles y visitas privadas.</p>
+            </div>
+          </div>
+          <button onclick="openCorporateModal()" class="flex-shrink-0 px-5 py-3 rounded-xl border border-gold-500/50 text-gold-400 hover:bg-gold-500 hover:text-black font-bold text-xs uppercase tracking-wider transition-all">
+            Cotizar Paquete Especial
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. MÓDULO DE RESERVA DIRECTA / APARTADO WHATSAPP (FR-01, FR-03, FR-04) -->
+    <section id="reserva" class="py-20 bg-museum-900 relative border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-500">Paso Final</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1 mb-3">Aparta tu misión en línea</h2>
+          <p class="text-slate-400 text-sm">Completa los datos del capitán de tu equipo para apartar tu horario de inmediato a través de WhatsApp oficial con confirmación inmediata.</p>
+        </div>
+
+        <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="bg-museum-950 p-8 sm:p-10 rounded-3xl border border-gold-500/40 shadow-2xl space-y-6">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Captain Name -->
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-2">Nombre del Capitán(a) *</label>
+              <div class="relative">
+                <i class="ph-bold ph-user absolute left-4 top-3.5 text-slate-500 text-lg"></i>
+                <input type="text" id="capitanNombre" required placeholder="Ej. Ana Lucía Fernández" class="w-full bg-museum-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-gold-500 transition-colors">
+              </div>
+            </div>
+
+            <!-- Captain Phone / WhatsApp -->
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-2">Teléfono / WhatsApp *</label>
+              <div class="relative">
+                <i class="ph-bold ph-whatsapp-logo absolute left-4 top-3.5 text-slate-500 text-lg"></i>
+                <input type="tel" id="capitanTelefono" required placeholder="Ej. 871 123 4567" class="w-full bg-museum-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white text-sm placeholder-slate-500 focus:outline-none focus:border-gold-500 transition-colors">
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <!-- Date Selector (FR-01) -->
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-2">Fecha deseada *</label>
+              <div class="relative">
+                <i class="ph-bold ph-calendar-blank absolute left-4 top-3.5 text-slate-500 text-lg"></i>
+                <input type="date" id="reservaFecha" required class="w-full bg-museum-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white text-sm focus:outline-none focus:border-gold-500 transition-colors">
+              </div>
+            </div>
+
+            <!-- Schedule Slot Selector -->
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-2">Horario *</label>
+              <div class="relative">
+                <i class="ph-bold ph-clock absolute left-4 top-3.5 text-slate-500 text-lg"></i>
+                <select id="reservaHorario" required onchange="syncScheduleWithForm()" class="w-full bg-museum-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white text-sm focus:outline-none focus:border-gold-500 transition-colors appearance-none">
+                  <option value="Sábado 11:00 AM (Día - $80)">Sábado 11:00 AM (Día - $80/p)</option>
+                  <option value="Domingo 11:00 AM (Día - $80)">Domingo 11:00 AM (Día - $80/p)</option>
+                  <option value="Viernes 6:00 PM (Noche - $100)" selected>Viernes 6:00 PM (Noche - $100/p)</option>
+                  <option value="Sábado 8:00 PM (Noche - $100)">Sábado 8:00 PM (Noche - $100/p)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Players Count in Form -->
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-slate-300 font-bold mb-2">Integrantes *</label>
+              <div class="relative">
+                <i class="ph-bold ph-users absolute left-4 top-3.5 text-slate-500 text-lg"></i>
+                <select id="reservaJugadores" onchange="syncPlayersWithForm()" class="w-full bg-museum-900 border border-slate-700 rounded-xl py-3 pl-11 pr-4 text-white text-sm focus:outline-none focus:border-gold-500 transition-colors appearance-none">
+                  <option value="4">4 Integrantes</option>
+                  <option value="5" selected>5 Integrantes</option>
+                  <option value="6">6 Integrantes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Live Booking Badge -->
+          <div class="p-4 rounded-xl bg-museum-900 border border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <i class="ph-fill ph-tag text-gold-400 text-xl"></i>
+              <div>
+                <span class="text-xs text-slate-400 uppercase font-semibold">Resumen de Inversión</span>
+                <div class="font-bold text-white text-sm" id="formSummary">5 Jugadores • Turno Nocturno</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-serif font-black text-gold-400 text-2xl" id="formTotalDisplay">$500 MXN</span>
+              <span class="text-[10px] text-slate-400 block">Pago presencial</span>
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row items-center gap-4">
+            <button type="submit" class="w-full sm:flex-1 py-4 px-6 rounded-xl font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-gold-500 to-gold-400 text-black hover:brightness-110 shadow-xl shadow-gold-500/25 transition-all flex items-center justify-center gap-3">
+              <i class="ph-bold ph-whatsapp-logo text-xl"></i>
+              <span>Confirmar Apartado en WhatsApp</span>
+            </button>
+            
+            <button type="button" onclick="openInviteModal()" class="w-full sm:w-auto py-4 px-6 rounded-xl font-semibold text-xs uppercase tracking-wider text-gold-400 border border-gold-500/40 bg-museum-900 hover:bg-gold-500/10 transition-colors flex items-center justify-center gap-2">
+              <i class="ph-bold ph-share-network text-lg"></i>
+              <span>Invitar a mi equipo</span>
+            </button>
+          </div>
+
+          <p class="text-[11px] text-slate-500 text-center">
+            * Al confirmar, se abrirá un chat prellenado con el encargado de taquilla del Museo Arocena para apartar el turno de tu equipo de inmediato.
+          </p>
+
+        </form>
+
+      </div>
+    </section>
+
+    <!-- 7. PREGUNTAS FRECUENTES Y REGLAS DE CONSERVACIÓN -->
+    <section id="faq" class="py-20 bg-museum-950">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs uppercase tracking-[0.3em] font-semibold text-gold-500">FAQ & Normativa</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-1 mb-3">Preguntas Frecuentes</h2>
+          <p class="text-slate-400 text-sm">Todo lo que necesitas saber antes de ingresar a tu misión de escape.</p>
+        </div>
+
+        <div class="space-y-4" id="faqAccordion">
+          
+          <!-- Item 1 -->
+          <div class="faq-card bg-museum-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <button type="button" onclick="toggleFaq(this)" class="w-full p-6 text-left font-bold text-white flex items-center justify-between gap-4 hover:text-gold-400 transition-colors">
+              <span class="font-serif text-base sm:text-lg">¿Se tocan o manipulan las obras de arte del museo?</span>
+              <i class="ph-bold ph-caret-down text-gold-400 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+              <strong>Absolutamente no.</strong> Las obras de arte y piezas históricas están estrictamente protegidas bajo normativas museográficas. Todas las pistas se resuelven mediante observación visual, deducción y la bitácora física que te entregará el guía. No se requiere correr ni mover mobiliario.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-card bg-museum-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <button type="button" onclick="toggleFaq(this)" class="w-full p-6 text-left font-bold text-white flex items-center justify-between gap-4 hover:text-gold-400 transition-colors">
+              <span class="font-serif text-base sm:text-lg">¿Necesito ser experto en historia o arte para resolverlo?</span>
+              <i class="ph-bold ph-caret-down text-gold-400 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+              No es necesario ningún conocimiento previo. Los enigmas están diseñados para poner a prueba el trabajo en equipo, la lógica espacial, códigos cifrados y la observación de detalles. Es divertido y accesible para cualquier persona a partir de los 14 años.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-card bg-museum-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <button type="button" onclick="toggleFaq(this)" class="w-full p-6 text-left font-bold text-white flex items-center justify-between gap-4 hover:text-gold-400 transition-colors">
+              <span class="font-serif text-base sm:text-lg">¿Con cuánta anticipación debemos llegar?</span>
+              <i class="ph-bold ph-caret-down text-gold-400 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+              Se recomienda presentarse con <strong>15 minutos de anticipación</strong> en la taquilla del Museo Arocena. Esto permite realizar el registro del equipo, la entrega de bitácoras y la explicación de las reglas de seguridad sin restar minutos de su hora de juego.
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-card bg-museum-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <button type="button" onclick="toggleFaq(this)" class="w-full p-6 text-left font-bold text-white flex items-center justify-between gap-4 hover:text-gold-400 transition-colors">
+              <span class="font-serif text-base sm:text-lg">¿Qué pasa si somos menos de 4 o más de 6 personas?</span>
+              <i class="ph-bold ph-caret-down text-gold-400 transition-transform duration-300"></i>
+            </button>
+            <div class="faq-content hidden px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+              La dinámica está calculada para un equilibrio óptimo de 4 a 6 personas. Si son un grupo mayor (por ejemplo, 10 o 12 amigos o compañeros de empresa), pueden dividirse en dos equipos simultáneos para competir entre sí por el mejor tiempo.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-museum-950 border-t border-gold-500/20 py-12 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Col 1: Branding -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-lg border border-gold-500/50 bg-museum-900 flex items-center justify-center text-gold-400">
+              <i class="ph-bold ph-key text-lg"></i>
+            </div>
+            <span class="font-serif font-bold text-lg text-white">LOS SECRETOS DEL AROCENA</span>
+          </div>
+          <p class="text-slate-400 text-xs sm:text-sm max-w-md leading-relaxed mb-4">
+            Una experiencia inmersiva de juego y misterio diseñada para redescubrir la riqueza artística e histórica de La Laguna desde una perspectiva interactiva.
+          </p>
+          <div class="flex items-center gap-4 text-gold-400 text-lg">
+            <a href="https://www.facebook.com/museoarocena" target="_blank" class="hover:text-white transition-colors" title="Facebook"><i class="ph-bold ph-facebook-logo"></i></a>
+            <a href="https://www.instagram.com/museoarocena" target="_blank" class="hover:text-white transition-colors" title="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+            <a href="https://museoarocena.com" target="_blank" class="hover:text-white transition-colors" title="Sitio Web"><i class="ph-bold ph-globe"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Ubicación -->
+        <div>
+          <h4 class="font-serif font-bold text-white text-sm uppercase tracking-wider mb-3">Ubicación</h4>
+          <p class="text-xs text-slate-400 leading-relaxed mb-2">
+            <strong>Museo Arocena</strong><br>
+            Calle Cepeda 354, Centro Histórico<br>
+            C.P. 27000, Torreón, Coahuila, México.
+          </p>
+          <a href="https://maps.google.com/?q=Museo+Arocena+Torreon" target="_blank" class="text-xs text-gold-400 hover:underline flex items-center gap-1">
+            <i class="ph-bold ph-map-pin"></i> Ver en Google Maps
+          </a>
+        </div>
+
+        <!-- Col 3: Contacto Rápido -->
+        <div>
+          <h4 class="font-serif font-bold text-white text-sm uppercase tracking-wider mb-3">Atención</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li class="flex items-center gap-2"><i class="ph-bold ph-phone text-gold-400"></i> +52 (871) 712 0233</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-whatsapp-logo text-gold-400"></i> +52 (871) 000 0000</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-envelope text-gold-400"></i> info@museoarocena.com</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>© 2026 Los Secretos del Arocena • Museo Arocena Torreón. Todos los derechos reservados.</div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-gold-400">Términos del Escape</a>
+          <a href="#" class="hover:text-gold-400">Políticas de Cuidado</a>
+          <a href="#" class="hover:text-gold-400">Privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: INVITA A TU EQUIPO (FR-04) -->
+  <div id="inviteModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-museum-900 border border-gold-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl animate-fade-in">
+      <button onclick="closeInviteModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+        <i class="ph-bold ph-x"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center text-2xl mb-4">
+        <i class="ph-bold ph-users-three"></i>
+      </div>
+
+      <h3 class="font-serif text-2xl font-bold text-white mb-2">Arma tu escuadrón de 4 a 6</h3>
+      <p class="text-slate-300 text-xs sm:text-sm mb-6 leading-relaxed">
+        Comparte este enlace con tus amigos o grupo de WhatsApp para acordar la fecha y ver quién se suma a la misión de escape en el Museo Arocena.
+      </p>
+
+      <div class="space-y-4">
+        <!-- WhatsApp Share Button -->
+        <a id="shareWhatsAppBtn" href="#" target="_blank" class="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white transition-all flex items-center justify-center gap-2 shadow-lg">
+          <i class="ph-bold ph-whatsapp-logo text-lg"></i>
+          <span>Compartir en Grupo de WhatsApp</span>
+        </a>
+
+        <!-- Copy Link Button -->
+        <button onclick="copyInviteLink()" id="copyLinkBtn" class="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-museum-800 hover:bg-museum-700 text-gold-400 border border-gold-500/40 transition-all flex items-center justify-center gap-2">
+          <i class="ph-bold ph-copy text-lg"></i>
+          <span id="copyLinkText">Copiar Enlace de Invitación</span>
+        </button>
+      </div>
+
+      <div class="mt-6 text-center">
+        <span class="text-[11px] text-slate-400">Costo accesible: solo $80 o $100 MXN por persona</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PAQUETES EMPRESARIALES Y ESCOLARES (FR-05) -->
+  <div id="corporateModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-museum-900 border border-gold-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeCorporateModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+        <i class="ph-bold ph-x"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center text-2xl mb-4">
+        <i class="ph-bold ph-buildings"></i>
+      </div>
+
+      <h3 class="font-serif text-2xl font-bold text-white mb-2">Paquetes Escolares y Team Building</h3>
+      <p class="text-slate-300 text-xs sm:text-sm mb-6 leading-relaxed">
+        Personalizamos rallys y dinámicas para grupos de más de 12 personas, escuelas, universidades de La Laguna y eventos de integración empresarial.
+      </p>
+
+      <form onsubmit="handleCorporateSubmit(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs uppercase text-slate-300 font-bold mb-1">Institución / Empresa</label>
+          <input type="text" id="corpEmpresa" required placeholder="Ej. Universidad / Empresa XYZ" class="w-full bg-museum-950 border border-slate-700 rounded-xl py-2.5 px-3.5 text-white text-sm focus:border-gold-500 focus:outline-none">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs uppercase text-slate-300 font-bold mb-1">Nombre de Contacto</label>
+            <input type="text" id="corpContacto" required placeholder="Nombre completo" class="w-full bg-museum-950 border border-slate-700 rounded-xl py-2.5 px-3.5 text-white text-sm focus:border-gold-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs uppercase text-slate-300 font-bold mb-1">Teléfono</label>
+            <input type="tel" id="corpTelefono" required placeholder="871..." class="w-full bg-museum-950 border border-slate-700 rounded-xl py-2.5 px-3.5 text-white text-sm focus:border-gold-500 focus:outline-none">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs uppercase text-slate-300 font-bold mb-1">Cantidad estimada de participantes</label>
+          <input type="number" min="10" max="150" id="corpParticipantes" placeholder="Ej. 25" class="w-full bg-museum-950 border border-slate-700 rounded-xl py-2.5 px-3.5 text-white text-sm focus:border-gold-500 focus:outline-none">
+        </div>
+        
+        <button type="submit" class="w-full mt-4 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider bg-gradient-to-r from-gold-500 to-gold-400 text-black hover:brightness-110 shadow-lg transition-all flex items-center justify-center gap-2">
+          <i class="ph-bold ph-paper-plane-tilt"></i>
+          <span>Enviar Solicitud a Coordinación</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Supabase JS Client & Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // Configuración de Supabase (se llena con las credenciales del proyecto)
+    window.SUPABASE_URL = "";
+    window.SUPABASE_ANON_KEY = "";
+  </script>
+
+  <!-- JavaScript Application Logic -->
+  <script src="js/main.js"></script>
+</body>
+</html>
