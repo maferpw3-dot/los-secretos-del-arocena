@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "los-secretos-del-arocena",
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
