@@ -1,0 +1,58 @@
+/* Stylesheet: Los Secretos del Arocena */
+
+:root {
+  --gold-glow: rgba(212, 175, 55, 0.25);
+  --crimson-glow: rgba(192, 38, 54, 0.35);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0b0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a303c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Smooth modal display */
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Subtly animated glow border for featured cards */
+.gold-glow-border {
+  box-shadow: 0 0 25px var(--gold-glow);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(16, 18, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Focus states accessibility */
+input:focus, select:focus, button:focus {
+  outline: none;
+}
